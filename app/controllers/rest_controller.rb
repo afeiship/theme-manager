@@ -1,6 +1,12 @@
 class RestController < ApplicationController
+    # common data wrapper:
+    include Response
+    include ExceptionHandler
+
+    # common filters:
     before_action :set_item, only: [:show, :destroy, :update]
 
+    # models:
     def initialize
         super
         model_name = self.class.name.demodulize.sub("Controller", "").singularize
@@ -8,30 +14,30 @@ class RestController < ApplicationController
         @model_symbol = model_name.downcase.to_sym
     end
 
-    # GET /options
+    # GET /items
     def index
         @items = @model_klass.all
         json_response(@items)
     end
     
-    # GET /options/:id
+    # GET /items/:id
     def show
         json_response(@item)
     end
 
-    # POST /options
+    # POST /items
     def create
         @item = @model_klass.create!(a./bllow_params)
         json_response(@item, :created)
     end
 
-    # PUT /options/:id
+    # PUT /items/:id
     def update
         @item.update allow_params if @item
         json_response(@item)
     end
 
-    # DELETE /options/:id
+    # DELETE /items/:id
     def destroy
         @item.destroy if @item
         json_response(@item)
