@@ -8,19 +8,10 @@ import routes from './routes';
 @hotable(module)
 export default class extends ReduxAppBase {
   static initialState(inStore) {
-    const { login } = inStore.local;
     return {
-      local: {
-        login: login || null
-      },
-      session: {
-        testSs: 'fei'
-      },
       memory: {
-        modalUser: false,
-        modalUserQuery: false,
-        orders: {},
-        users: {}
+        options: {},
+        themes: {}
       }
     };
   }
@@ -29,10 +20,6 @@ export default class extends ReduxAppBase {
     nx.$memory = {
       history: this.root.history
     };
-  }
-
-  eventBus(inName, inData) {
-    console.log('*, I am - global event bus center:->', inName, inData);
   }
 
   render() {

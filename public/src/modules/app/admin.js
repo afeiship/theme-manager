@@ -1,6 +1,9 @@
-import UserIndex from '@/modules/users/index';
-import OrderIndex from '@/modules/orders/index';
-import { Route } from 'react-router-dom';
+import OptionsIndex from '@/modules/options/index';
+import ThemesIndex from '@/modules/themes/index';
+import { Menu, Layout, Row, Col, Spin } from 'antd';
+import { Route, Link } from 'react-router-dom';
+
+const { Content, Sider } = Layout;
 
 export default class extends React.Component {
   constructor(props) {
@@ -21,35 +24,33 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div className="main-view">
-        <div>
-          <div className="p10 logo mb30">
-            <h1 className="c-f">tradewow</h1>
+      <Layout className="main-view">
+        <Sider>
+          <div className="p10 logo mb10">
+            <h1 className="c-f">ThemeManager</h1>
             <h3 className="c-e">后台管理</h3>
           </div>
-
-          <ul>
-            onClick={this._onMenuClick}>
-            <li key="/modules/users/index">
-              <span className="nav-text">用户管理</span>
-            </li>
-            <li key="/modules/orders/index">
-              <span className="nav-text">订单管理</span>
-            </li>
-          </ul>
-        </div>
-        <div>
+          <Menu theme="dark" onClick={this._onMenuClick}>
+            <Menu.Item key="/modules/options/index">
+              <span className="nav-text">系统设置</span>
+            </Menu.Item>
+            <Menu.Item key="/modules/themes/index">
+              <span className="nav-text">主题管理</span>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Content>
           <header className="tr bg-f">
             <span className="mr10">Hello Admin</span>
             <a href="#">Logout</a>
           </header>
           <div style={{ margin: '24px 16px 0' }}>
-            <Route path={`/modules/users/index`} component={UserIndex} />
-            <Route path={`/modules/orders/index`} component={OrderIndex} />
+            <Route path={`/modules/options/index`} component={OptionsIndex} />
+            <Route path={`/modules/themes/index`} component={ThemesIndex} />
           </div>
           <footer style={{ textAlign: 'center' }}>Admin @Power by Fei.</footer>
-        </div>
-      </div>
+        </Content>
+      </Layout>
     );
   }
 }

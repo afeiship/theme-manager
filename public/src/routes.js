@@ -3,8 +3,7 @@ import { $loadable } from '#';
 export default [
   {
     path: '/',
-    exact: true,
-    component: $loadable.load(() => import('./modules/app/login'))
+    component: $loadable.load(() => import('./modules/app/admin'))
   },
   {
     path: '/modules/options/index',
