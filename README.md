@@ -10,3 +10,4 @@
 ## resources:
 - https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
 - https://medium.com/otavio-henrique/creating-simple-rest-api-with-rails-5-1ba71b37cad
+- https://stackoverflow.com/questions/31652437/translate-model-name-by-string-in-rails
