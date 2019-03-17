@@ -7,7 +7,11 @@ export default [
     component: $loadable.load(() => import('./modules/app/login'))
   },
   {
-    path: '/admin/orders/index',
-    component: $loadable.load(() => import('./modules/orders/index'))
+    path: '/modules/options/index',
+    component: $loadable.load(() => import('./modules/options/index'))
+  },
+  {
+    path: '/modules/themes/index',
+    component: $loadable.load(() => import('./modules/themes/index'))
   }
 ];

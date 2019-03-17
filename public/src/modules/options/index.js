@@ -1,6 +1,6 @@
 import { $api, $store, $app, $config } from '#';
-import HedaerView from './views/header-view';
-@mixin(['param', HedaerView])
+
+@mixin(['param'])
 export default class extends React.Component {
   componentDidMount() {
     console.log('did');
@@ -10,7 +10,6 @@ export default class extends React.Component {
     console.log('orders index loaded', this.params);
     return (
       <div>
-        {this.headerView}
         Orders Index View
       </div>
     );
